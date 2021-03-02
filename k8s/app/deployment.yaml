@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: nerdeveloper/nodejs-demo
+        image: nerdeveloper/nodejs
         ports:
         - containerPort: 3000
         livenessProbe:

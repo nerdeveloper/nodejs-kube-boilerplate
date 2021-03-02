@@ -4,18 +4,21 @@ pipeline {
         KUBECONFIG = credentials('kubeconfig')
         DOCKER_USERNAME = credentials('docker_username')
         DOCKER_PASS = credentials('docker_pass')
+        IMAGE_NAME = 'nodejs-demo'
     }
     stages {
+        agent any
         stage('Build and Push docker image') {
             steps {
-                sh "docker build -t nerdeveloper/nodejs-demo --rm ."
+                sh "docker build -t nerdeveloper/nodejs-demo:$BUILD_NUMBER --rm ."
                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASS"
-                sh "docker push nerdeveloper/nodejs-demo"
+                sh "docker push nerdeveloper/$IMAGE_NAME:$BUILD_NUMBER"
             }
         }
         stage('Deploy App to Kubernetes Cluster') {
             steps {
                 sh "kubectl --kubeconfig $KUBECONFIG apply -f k8s/app"
+                sh "kubectl --kubeconfig $KUBECONFIG set image deployment $IMAGE_NAME $IMAGE_NAME=nerdeveloper/$IMAGE_NAME:$BUILD_NUMBER"
             }
         }
         stage('Deploy Nginx to Kubernetes Cluster') {
