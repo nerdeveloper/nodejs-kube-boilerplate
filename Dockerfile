@@ -9,7 +9,6 @@ ENV NODE_ENV $NODE_ENV
 EXPOSE 3000 9229
 
 WORKDIR /usr/src/app
-USER node
 
 COPY package*.json ./
 RUN npm install --quiet --no-progress && npm cache clean --force
