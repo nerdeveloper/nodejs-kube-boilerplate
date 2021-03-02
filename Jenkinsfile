@@ -1,11 +1,11 @@
 pipeline {
+    agent any
     environment {
         KUBECONFIG = credentials('kubeconfig')
         DOCKER_USERNAME = credentials('docker_username')
         DOCKER_PASS = credentials('docker_pass')
     }
     stages {
-        agent any
         stage('Build and Push docker image') {
             steps {
                 sh "docker build -t nerdeveloper/nodejs-demo"
@@ -24,4 +24,4 @@ pipeline {
             }
         }
     }
-} 
+}
