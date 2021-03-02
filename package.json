@@ -1,0 +1,19 @@
+{
+    "name": "EqsTest",
+    "version": "0.0.1",
+    "description": "Backend app for eqs test",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [
+        "test",
+        "nginx"
+    ],
+    "author": "",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
