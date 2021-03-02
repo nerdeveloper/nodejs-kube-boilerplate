@@ -7,7 +7,6 @@ pipeline {
         IMAGE_NAME = 'nodejs-demo'
     }
     stages {
-        agent any
         stage('Build and Push docker image') {
             steps {
                 sh "docker build -t nerdeveloper/nodejs-demo:$BUILD_NUMBER --rm ."
