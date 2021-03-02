@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/healthcheck', (req, res) => {
+app.get('/health', (req, res) => {
   res.send('Healthy!!!')
 })
 

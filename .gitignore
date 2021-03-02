@@ -59,3 +59,8 @@ typings/
 /package-lock.json
 
 /.db
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/nodejs-kube-boilerplate.iml
+/.idea/vcs.xml

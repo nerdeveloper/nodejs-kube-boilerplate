@@ -16,4 +16,4 @@ RUN npm install --quiet --no-progress && npm cache clean --force
 
 COPY . .
 
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
