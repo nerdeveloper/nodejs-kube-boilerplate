@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,7 +13,19 @@ spec:
     metadata:
       labels:
         app: nodejs-demo
+    annotations:
+      vault.hashicorp.com/agent-inject: "true"
+      vault.hashicorp.com/agent-inject-status: "update"
+      vault.hashicorp.com/agent-inject-secret-database: "secret/database"
+      vault.hashicorp.com/role: "mysql"
+      vault.hashicorp.com/auth-path: "/auth/kubernetes"
+      vault.hashicorp.com/agent-inject-template-database: |
+        {{- with secret "secret/database" -}}
+        MYSQL_PASSWORD={{ .Data.data.password }}
+        MYSQL_USERNAME={{ .Data.data.username }}
+        {{- end }}
     spec:
+      serviceAccountName: mysql
       containers:
         - name: nodejs-demo
           image: nerdeveloper/nodejs-demo
