@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build and Push docker image') {
             steps {
-                sh "docker build -t nerdeveloper/nodejs-demo:$BUILD_NUMBER --rm ."
+                sh "docker build -t nerdeveloper/$IMAGE_NAME:$BUILD_NUMBER --rm ."
                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASS"
                 sh "docker push nerdeveloper/$IMAGE_NAME:$BUILD_NUMBER"
             }
