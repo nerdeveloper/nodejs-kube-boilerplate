@@ -9,7 +9,7 @@
 
 ## FOR DEVELOPMENT
 ```shell
-git clone git@github.com:nerdeveloper/nodejs-kube-boilerplate.git
+git clone https://github.com/nerdeveloper/nodejs-kube-boilerplate.git
 
 cd nodejs-kube-boilerplate
 
