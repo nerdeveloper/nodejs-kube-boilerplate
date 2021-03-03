@@ -17,6 +17,12 @@ npm install
 
 npm start
 ```
+## ENDPOINTS
+`/` - Welcome Page
+
+`/health` - For Readiness and Liveness Probe
+
+`/db_credentials` - Credentials being injected by Vault
 
 ## Live Server
 
