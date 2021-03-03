@@ -30,7 +30,7 @@ spec:
         - name: nodejs-demo
           image: nerdeveloper/nodejs-demo
           args:
-            [ 'sh', '-c', 'source /vault/secrets/database' ]
+            [ 'sh', '-c', 'source /vault/secrets/database && node server.js'  ]
           ports:
             - containerPort: 3000
           livenessProbe:
