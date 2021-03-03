@@ -21,8 +21,8 @@ spec:
         vault.hashicorp.com/auth-path: "/auth/kubernetes"
         vault.hashicorp.com/agent-inject-template-database: |
           {{- with secret "secret/database" -}}
-          MYSQL_PASSWORD={{ .Data.data.password }}
-          MYSQL_USERNAME={{ .Data.data.username }}
+          export MYSQL_PASSWORD={{ .Data.data.password }}
+          export MYSQL_USERNAME={{ .Data.data.username }}
           {{- end }}
     spec:
       serviceAccountName: mysql
